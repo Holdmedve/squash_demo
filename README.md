@@ -30,7 +30,7 @@ Refactor some_query.sql
 ```
 
 ### 2. Choose the commit to rebase on top of
-In this case you would like to squash 3 commits: 
+In this case you would like to squash 3 commits:
 - commit_hash_no_4
 - commit_hash_no_3
 - commit_hash_no_2
@@ -40,25 +40,25 @@ So you will rebase on top of ``commit_hash_no_1``:
 ```
 ~% git rebase -i commit_hash_no_1
 ```
-An editor will open with the following content: 
+An editor will open with the following content:
 ```
-pick commit_hash_no_4
-pick commit_hash_no_3
 pick commit_hash_no_2
+pick commit_hash_no_3
+pick commit_hash_no_4
 
 # help displayed here
 ```
 Note that the ordering here is the opposite of what git log shows, meaning that the latest commit is on the bottom.
 
 ### 3. Manipulate commit history
-At this step point you have multiple options on how manipulate the commits.<br><br>
-Let's suppose you like the commit message ``Add staging workflow`` 
+At this step you have multiple options on how manipulate the commits.<br><br>
+Let's suppose you like the commit message ``Add staging workflow``
 <br>and don't need ``Fix typo in staging workflow``, ``Add missing env var to staging workflow``.
 <br>(press `i` if you are in vim to edit)
 ```
-pick commit_hash_no_4
+pick commit_hash_no_2
 f commit_hash_no_3
-f commit_hash_no_2
+f commit_hash_no_4
 
 # help will be displayed here
 ```
@@ -81,6 +81,7 @@ It will overwrite the remote branch with the local branch.
 
 ## Links
 https://stackoverflow.com/questions/5189560/squash-my-last-x-commits-together-using-git
+
 https://stackoverflow.com/questions/52823692/git-push-force-with-lease-vs-force
 
 
